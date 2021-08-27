@@ -1,0 +1,46 @@
+import { ArgsTable, Canvas, Description, Meta, Story } from "@storybook/addon-docs";
+import { DesignTokenDocBlock } from "storybook-design-token/dist/doc-blocks";
+
+import { Radio } from "..";
+import pkg from "../../package.json";
+import readme from "../../README.md";
+
+<Meta
+  title="Components/Input/Radio"
+  component={Radio}
+  parameters={{ componentSubtitle: `${pkg.name} - ${pkg.version}`, docs: { source: { type: "dynamic" } } }}
+/>
+
+<Description markdown={readme} />
+
+## Design Tokens
+
+<DesignTokenDocBlock categoryName="Radio" viewType="table" />
+
+## Stories
+
+### Default
+
+<Canvas>
+  <Story
+    name="Default"
+    args={{
+      label: "I agree",
+      checked: true
+    }}
+    parameters={{
+      docs: {
+        source: {
+          code: `
+import { Radio } from "@gemeente-denhaag/radio";
+<Radio label={"I agree"}/>;
+    `,
+        },
+      },
+    }}
+  >
+    {(args) => <Radio id={1} {...args} />} />}
+  </Story>
+</Canvas>
+
+<ArgsTable of={Radio} />
